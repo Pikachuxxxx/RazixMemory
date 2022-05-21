@@ -5,16 +5,21 @@
 namespace Razix {
 
     /**
-     * Base memory class for all the classes to aid with custom allocation
+     * Base memory class for all the classes to aid with custom allocation, provides custom operators and allocation functions
      * 
      * we will use macros and other special options to decide which pool will the object be allocated from
      */
-    class RZMemoryBase
+    class RZMemoryRoot
     {
     public:
-        RZMemoryBase() = default;
-        virtual ~RZMemoryBase() { }
+        RZMemoryRoot() = default;
+        virtual ~RZMemoryRoot() { }
 
+        /**
+         * new operator to allocate memory for the Object 
+         * 
+         * @param size The size of memory to allocate for the object
+         */
         void* operator new(size_t size);
         void* operator new[](size_t size);
         void* operator new(size_t size, void* where);

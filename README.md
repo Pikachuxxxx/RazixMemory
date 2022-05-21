@@ -7,7 +7,7 @@ Check the Razix Engine Docs and design notes to know about allocation/API design
 
 It will also act as a base for custom rzstl::Allocator and RZSTL.
 
-- Razix uses custom malloc and free (using native kernel functions)
+- Razix uses custom malloc and free + overrides new and delete operators
 - We use the kernel functions with a allocation strategy to manage the memory
 - First stage of memory pools are seperated by their alignments, hence same aligned data are placed one place ?????? IDK man
 - However one needs to consider not only that the data is packed properly but also is together(algiment vs distance of allocation needs to-go hand in hand)
@@ -17,7 +17,7 @@ It will also act as a base for custom rzstl::Allocator and RZSTL.
 
 The following sections will be updated in design notes and in wiki as the project moves forward.
 
-- [ ] **Custom Operators and Memory allocations (using kernel functions)**
+- [ ] **Custom Operators and Memory allocation Functions + Macros**
 
 - [ ] **Heap Strategies + Tracking**
 

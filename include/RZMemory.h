@@ -1,4 +1,6 @@
 #pragma once
 
-#include "RZMemoryBase.h"
+// Contains all the files for custom memory
+
+#include "RZMemoryRoot.h"
 #include "RZMemoryPools.h"
