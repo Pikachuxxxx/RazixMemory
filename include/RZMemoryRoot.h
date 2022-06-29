@@ -1,6 +1,4 @@
-#pragma  once
-
-#include "RZMemoryLog.h"
+#pragma once
 
 namespace Razix {
 
@@ -13,7 +11,7 @@ namespace Razix {
     {
     public:
         RZMemoryRoot() = default;
-        virtual ~RZMemoryRoot() { }
+        ~RZMemoryRoot() { } // Having this virtual will add up a vtable pointer, anyway razix initializes and destroys manually so no need to worry about destructor being virtual here
 
         /**
          * new operator to allocate memory for the Object 
@@ -22,7 +20,6 @@ namespace Razix {
          */
         void* operator new(size_t size);
         void* operator new[](size_t size);
-        void* operator new(size_t size, void* where);
         void* operator new[](size_t size, void* where);
 
         void operator delete(void* pointer);

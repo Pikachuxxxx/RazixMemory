@@ -1,6 +1,3 @@
--- Razix Engine vendor Common Inlcudes 
-include 'Scripts/premake/common/vendor_includes.lua'
-
 project "RazixMemory"
     language "C++"
     kind "StaticLib"
@@ -15,19 +12,12 @@ project "RazixMemory"
 
     sysincludedirs
     {
-        "./include",
-        "%{IncludeDir.spdlog}"
+        "./include"
     }
 
      includedirs
     {
-        "./include",
-        "%{IncludeDir.spdlog}"
-    }
-
-    links
-    {
-        "spdlog"
+        "./include"
     }
 
     filter "system:windows"
