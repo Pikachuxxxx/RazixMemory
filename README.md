@@ -30,5 +30,14 @@ The following sections will be updated in design notes and in wiki as the projec
 - [ ] **GPU Interop API to interface with DXMA, VMA etc.**
 
 ## References
-1. [CppCon 2014: Mike Acton "Data-Oriented Design and C++"](https://www.youtube.com/watch?v=rX0ItVEVjHc) - Golden reference
-2. Jason Gregory Game Engine Architecture - Memory and Fragmentation
+1. [What Every Programmer Should Know About Memory](https://people.freebsd.org/~lstewart/articles/cpumemory.pdf) - :warning:IMPORTANT!!!!!:warning:
+2. [Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3A: System Programming Guide, Part 1 // CHAPTER 11 : MEMORY CACHE CONTROL](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.pdf)
+3. [How do `malloc()` and `free()` work?](https://stackoverflow.com/questions/1119134/how-do-malloc-and-free-work)
+4. [GNU C library Virtual Memory Allocation And Paging](https://ftp.gnu.org/old-gnu/Manuals/glibc-2.2.3/html_chapter/libc_3.html)
+5. [How to allocate full memory pages](https://stackoverflow.com/questions/43352445/how-to-allocate-full-memory-pages)
+6. [CppCon 2014: Mike Acton "Data-Oriented Design and C++"](https://www.youtube.com/watch?v=rX0ItVEVjHc) - Golden reference for Design + Optimizations
+7. Jason Gregory Game Engine Architecture - Memory and Fragmentation
+8. [malloc using sys calls Implementation example](https://github.com/miguelperes/custom-malloc/blob/master/mymemory.c)
+9. [Free-Space Management - University of Wisconsin](https://pages.cs.wisc.edu/~remzi/OSTEP/vm-freespace.pdf)
+10. [TLSF - 2 level segregation firt allocator](http://www.gii.upv.es/tlsf/files/ecrts04_tlsf.pdf)
+11. [tcmalloc - Google](https://google.github.io/tcmalloc/)
