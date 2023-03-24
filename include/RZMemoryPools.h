@@ -7,4 +7,4 @@
  * We will use macros to select the pools and other properties about alignment, speed, expansion etc (to be defined)
  */
 
-#define RAZIX_CLASS_BIND_MEMORY_POOL(classType, poolType, allocationProperties)
+#define RAZIX_CLASS_BIND_MEMORY_POOL(classType, poolType, allocationProperties) RegisterMemoryPool<classType>(poolType, allocationProperties);

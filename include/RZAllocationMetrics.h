@@ -19,6 +19,11 @@ struct RZMemAllocInfo
     size_t      size;
 };
 
+class RZMemAllocInfoIterator
+{
+public:
+};
+
 struct RZMemClusterAllocInfo : public RZMemAllocInfo
 {
     uint32_t clusterID;
@@ -35,6 +40,7 @@ struct RZMemCellAllocInfo : public RZMemClusterAllocInfo
 
 struct RZMemView
 {
+
 };
 
 struct RZMemAllocSnapshot
@@ -51,7 +57,17 @@ struct RZMemInfoElement
 {
 };
 
-class RZMemoAllocInfoIterator
+struct RZMemAllocatorStats
 {
-public:
+    size_t   allocatedBytes;
+    size_t   totalBytes;
+    uint32_t allocationsCount;
+
+    void add(size_t alloc)
+    {
+        if (alloc) {
+            allocatedBytes += alloc;
+            ++allocationsCount;
+        }
+    }
 };

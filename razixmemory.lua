@@ -7,17 +7,20 @@ project "RazixMemory"
         "src/**.h",
         "src/**.c",
         "src/**.cpp",
-        "include/**.h"
+        "include/**.h",
+        "vendor/tlsf/tlsf.c"
     }
 
-    sysincludedirs
+    externalincludedirs
     {
-        "./include"
+        "./include",
+        "vendor/tlsf"
     }
 
      includedirs
     {
-        "./include"
+        "./include",
+        "vendor/tlsf"
     }
 
     filter "system:windows"

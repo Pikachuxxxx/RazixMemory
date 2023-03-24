@@ -6,12 +6,12 @@ namespace Razix {
 
     void* RZMemoryRoot::operator new(size_t size)
     {
-        return RZMalloc(size);
+        return Memory::RZMalloc(size);
     }
 
     void* RZMemoryRoot::operator new[](size_t size)
     {
-        return RZMalloc(size);
+        return Memory::RZMalloc(size);
     }
 
     void* RZMemoryRoot::operator new[](size_t size, void* where)
@@ -22,11 +22,11 @@ namespace Razix {
 
     void RZMemoryRoot::operator delete(void* pointer)
     {
-        RZFree(pointer);
+        Memory::RZFree(pointer);
     }
 
     void RZMemoryRoot::operator delete[](void* pointer)
     {
-        RZFree(pointer);
+        Memory::RZFree(pointer);
     }
 }

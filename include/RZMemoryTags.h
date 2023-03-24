@@ -16,10 +16,15 @@ enum class MemoryTag
     SCENE,
     PHYSICS, 
     SCRIPTING, 
-    COMMON, 
-    MISC, 
+    COMMON,
     UNKNOWN, 
-    // VERY IMPORTANT TAGS !!!
+    // VERY IMPORTANT TAGS !!! 
     THREAD_GLOBAL,
     THREAD_SHARED
+};
+
+enum class MemoryLife
+{
+    Transient,  // Per-frame allocations will use a Bump/Ring based frame allocator
+    Persistent  // These kind of allocations use a Pool based on memory Tag and alloc properties
 };

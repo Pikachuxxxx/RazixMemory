@@ -5,8 +5,9 @@
 #include <cstdint>
 
 namespace Razix {
+    namespace Memory {
 
-    /**
+        /**
      * These the normal (aka fast) and debug version of custom memory allocation functions
      * 
      * Razix customized RZMalloc and RZFree, we provide fast versions of malloc and free 
@@ -22,15 +23,15 @@ namespace Razix {
      * mechanisms + warning while allocations
      */
 
-    /**
+        /**
      * Allocates a block of memory at the given alignment
      * 
      * @param size The size of the memory block to allocate
      * @param alignment The alignment of the memory block
      * @returns address to the aligned contiguous block of memory 
      */
-    void* RZMalloc(size_t size, size_t alignment);
-    /**
+        void* RZMalloc(size_t size, size_t alignment);
+        /**
      * Allocated a block of memory at 16-byte alignment
      * 
      * @note: 16-byte makes it easy for AVX operations
@@ -38,16 +39,18 @@ namespace Razix {
      * @param size The size of the memory block to allocate
      * @returns address to the aligned contiguous block of memory
      */
-    void* RZMalloc(size_t size);
+        void* RZMalloc(size_t size);
+        void* RZMalloc(size_t size, const char* filename, uint32_t lineNumber, const char* tag);
+        void* RZMalloc(size_t size, size_t alignment, const char* filename, uint32_t lineNumber, const char* tag);
 
-    void RZFree(void* address);
+        void RZFree(void* address);
 
 #ifdef RAZIX_MEMORY_DEBUG
 
-    void* RZDebugMalloc(size_t size, size_t alignment, const char* filename, uint32_t lineNumber, const char* tag);
+        void* RZDebugMalloc(size_t size, size_t alignment, const char* filename, uint32_t lineNumber, const char* tag);
 
-    void RZDebugFree(void* address);
+        void RZDebugFree(void* address);
 
 #endif
-
+    }    // namespace Memory
 }    // namespace Razix
