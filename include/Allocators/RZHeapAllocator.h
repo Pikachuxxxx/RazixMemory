@@ -11,8 +11,8 @@ namespace Razix {
             RZHeapAllocator()  = default;
             ~RZHeapAllocator() = default;
 
-            void init(size_t chunkSize);
-            void shutdown();
+            void init(size_t chunkSize) override;
+            void shutdown() override;
 
             void* allocate(size_t size, size_t alignment) override;
 

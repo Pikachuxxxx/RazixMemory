@@ -57,6 +57,12 @@ namespace Razix {
             // TODO: End tracking allocation here
         }
 
+        size_t RZMemAlign(size_t size, size_t alignment)
+        {
+            const size_t alignment_mask = alignment - 1;
+            return (size + alignment_mask) & ~alignment_mask;
+        }
+
 #ifdef RAZIX_MEMORY_DEBUG
 
         void* RZDebugMalloc(size_t size, size_t alignment, const char* filename, uint32_t lineNumber, const char* tag)
@@ -65,7 +71,7 @@ namespace Razix {
             // Plus reports the allocation that was done
             // We create a struct as mentioned and then add it to the total allocation size --> Init it with allocation info --> Append it --> Align it and boom sent it for usage --> user wont know it's a bit bigger
             size_t total_size = size; /* + sizeof(AllocationInfo) */
-            void*  addr       = _aligned_malloc(size, alignment); 
+            void*  addr       = _aligned_malloc(size, alignment);
             //printf("[Memory Alloc]  sz : %zu | alignment : %zu | tag : %s | addr : %llx", size, alignment, tag, (uintptr_t) addr);
             return addr;
         }
