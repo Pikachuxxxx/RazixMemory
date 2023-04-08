@@ -3,6 +3,7 @@
 #include "RZMemoryFunctions.h"
 
 namespace Razix {
+#if 1
 
     void* RZMemoryRoot::operator new(size_t size)
     {
@@ -29,4 +30,5 @@ namespace Razix {
     {
         Memory::RZFree(pointer);
     }
+#endif
 }

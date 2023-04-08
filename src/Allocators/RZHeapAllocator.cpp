@@ -4,7 +4,6 @@
 #include "RZMemoryFunctions.h"
 
 #include <iostream>
-#include <stdlib.h>    // for malloc
 
 #include <tlsf.h>
 

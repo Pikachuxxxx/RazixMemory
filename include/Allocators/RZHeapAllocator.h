@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Allocators/IRZAllocator.h"
+#include "IRZAllocator.h"
 
 namespace Razix {
     namespace Memory {
