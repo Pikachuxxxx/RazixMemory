@@ -1,6 +1,5 @@
 #pragma once
 
-
 /**
  * Memory config macros such as to track context switches etc.
  */
@@ -13,7 +12,6 @@
     #define RAZIX_MEMORY_DEBUG
 #endif
 
-
 /**
  * Enable Heap allocation tracking
  */
@@ -22,8 +20,26 @@
 /**
  * Max amount of memory that can be allocated by all the pools ever, for more we need special request by the engine
  */
-#define RAZIX_MEMORY_MAX_ALLOCATION 10737418240 // 10 GB in bytes
+#define RAZIX_MEMORY_MAX_ALLOCATION_SIZE 10 * 1024 * 1024 * 1024    // 10 GiB
 
 /**
- * Minimum pool allocation 
+ * Maximum amount of dynamic pool memory that can be done at once
  */
+#define RAZIX_MEMORY_MAX_DYNAMIC_ALLOCATION_SIZE 256 * 1024 * 1024    // 256 Mib
+
+/**
+ * Frame budget for dynamic and static allocations (default, can be customized)
+ */
+#define RAZIX_DEFAULT_FRAME_BUDGET 1 * 1024 * 1024 * 1024    // 1 Gib
+
+/**
+ * Minimum pool allocation of 64 kilobytes for efficient page size DMA copy
+ */
+#define RAZIX_MEMORY_MIN_POOL_ALLOC_SIZE 64 * 1024    // 64 Kib
+
+/**
+ * Memory size constants
+ */
+#define Kb(size) (size * 1024)
+#define Mb(size) (size * 1024 * 1024)
+#define Gb(size) (size * 1024 * 1024 * 1024)

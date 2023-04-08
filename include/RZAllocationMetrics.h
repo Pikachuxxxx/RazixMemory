@@ -63,7 +63,7 @@ struct RZMemAllocatorStats
     size_t   totalBytes;
     uint32_t allocationsCount;
 
-    void add(size_t alloc)
+    void Add(size_t alloc)
     {
         if (alloc) {
             allocatedBytes += alloc;

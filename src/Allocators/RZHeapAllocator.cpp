@@ -13,7 +13,7 @@ namespace Razix {
         static void deallocation_pool_walker(void* ptr, size_t size, int used, void* user_data)
         {
             RZMemAllocatorStats* stats = (RZMemAllocatorStats*) user_data;
-            stats->add(used ? size : 0);
+            stats->Add(used ? size : 0);
 
 #ifdef RAZIX_DEBUG
             if (used)
