@@ -7,14 +7,12 @@ project "RazixMemory"
         "src/**.h",
         "src/**.c",
         "src/**.cpp",
-        "include/**.h",
-        "vendor/tlsf/tlsf.c"
+        "include/**.h"
     }
 
     externalincludedirs
     {
-        "./include",
-        "vendor/tlsf"
+        "./include"
     }
 
      includedirs
