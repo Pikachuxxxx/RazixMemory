@@ -63,16 +63,19 @@ namespace Razix {
 
         void* RZHeapAllocator::allocate(size_t size, size_t alignment)
         {
-            void*  alloc_memory = tlsf_memalign(m_TLSFHandle, alignment, size);
-            size_t actual_size  = tlsf_block_size(alloc_memory);
+            m_CurrentAllocation = tlsf_memalign(m_TLSFHandle, alignment, size);
+            size_t actual_size  = tlsf_block_size(m_CurrentAllocation);
             m_AllocatedSize += actual_size;
-            return alloc_memory;
+            return m_CurrentAllocation;
         }
 
         void RZHeapAllocator::deallocate(void* ptr)
         {
             size_t actual_size = tlsf_block_size(ptr);
             m_AllocatedSize -= actual_size;
+
+            // Point to previous allocation
+            *(size_t*) m_CurrentAllocation = m_AllocatedSize;
 
             tlsf_free(m_TLSFHandle, ptr);
         }

@@ -3,6 +3,7 @@
 #include <corecrt_malloc.h>
 
 #include <stdio.h>
+#include <string.h>
 
 namespace Razix {
 
@@ -21,6 +22,9 @@ namespace Razix {
 #elif defined(_WIN32)
             address = _aligned_malloc(size, alignment);
 #endif
+
+            // Zero out the allocated memory
+            memset(address, 0, size);
 
             return address;
 
